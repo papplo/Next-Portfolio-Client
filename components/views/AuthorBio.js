@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import splitStyles from './styles/split'
-import reset from './styles/reset'
+import splitStyles from '../styles/split'
+import reset from '../styles/reset'
 
 export default (props) => (
   <div>

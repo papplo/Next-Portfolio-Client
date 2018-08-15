@@ -3,6 +3,7 @@
 // >>>import { Navbar } from '../../components/'<<<
 
 
-export { default as Layout } from './Layout'
-export { default as AuthorBio } from './AuthorBio'
-export { default as LinksList } from './LinksList'
+export { default as Layout }    from './views/Layout'
+export { default as AuthorBio } from './views/AuthorBio'
+
+export { default as LinksList } from './elements/LinksList'
