@@ -41,30 +41,29 @@ export default class People extends React.Component {
 
     return (
       <AuthorBio>
-      <div id="fullsingle" className="page-template-page-fullsingle-split">
+        <div id="fullsingle" className="page-template-page-fullsingle-split">
+          <div className="fs-split">
+          <div className="split-image"
+            style={{backgroundImage: `url(${people[0].imageUrl})`}}>
+          </div>
+          	<div className="split-content">
 
-      <div className="fs-split">
-      	<div className="split-image"
-          style={{backgroundImage: `url(${people[0].imageUrl})`}}>
+          		<div className="split-content-vertically-center">
+          			<div className="split-intro">
+          				<h1>{people[0].name}</h1>
+          				<span className="tagline">Creative. Developer. Designer. </span>
+          			</div>
+
+          			<div className="split-bio">
+          				<p>Donec at libero id lectus porta dapibus eu in nibh. Cras id mauris sapien. Fusce viverra <a href="#">luctus urna</a> ac rutrum. Duis semper elit eu mi facilisis eleifend. Donec semper, <a href="#">ipsum in</a> malesuada congue, <a href="#">purus sem</a> ullamcorper massa, sit amet lacinia nibh enim sed massa. </p>
+          			</div>
+
+                <LinksList links={people[0].biolinks} />
+          		</div>
+          	</div>
+
+          </div>
         </div>
-      	<div className="split-content">
-        
-      		<div className="split-content-vertically-center">
-      			<div className="split-intro">
-      				<h1>{people[0].name}</h1>
-      				<span className="tagline">Creative. Developer. Designer. </span>
-      			</div>
-
-      			<div className="split-bio">
-      				<p>Donec at libero id lectus porta dapibus eu in nibh. Cras id mauris sapien. Fusce viverra <a href="#">luctus urna</a> ac rutrum. Duis semper elit eu mi facilisis eleifend. Donec semper, <a href="#">ipsum in</a> malesuada congue, <a href="#">purus sem</a> ullamcorper massa, sit amet lacinia nibh enim sed massa. </p>
-      			</div>
-
-            <LinksList links={people[0].biolinks} />
-      		</div>
-
-      	</div>
-      </div>
-    </div>
         <style jsx>{splitStyles}</style>
         <style jsx>{styles}</style>
         <style jsx>{listStyles}</style>
