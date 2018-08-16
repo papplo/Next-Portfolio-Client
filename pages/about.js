@@ -22,6 +22,8 @@ const query = `*[_type == "author"] {
   _id,
   name,
   bio,
+  tagline,
+  feeds,
   biolinks[]->{title, url, category, _id},
   image,
   "imageUrl": image.asset->url,
@@ -38,7 +40,6 @@ export default class People extends React.Component {
 
   render() {
     const { people } = this.props
-
     return (
       <AuthorBio>
         <div id="fullsingle" className="page-template-page-fullsingle-split">
@@ -51,14 +52,14 @@ export default class People extends React.Component {
           		<div className="split-content-vertically-center">
           			<div className="split-intro">
           				<h1>{people[0].name}</h1>
-          				<span className="tagline">Creative. Developer. Designer. </span>
+          				<span className="tagline">{people[0].tagline}</span>
           			</div>
 
           			<div className="split-bio">
-          				<p>Donec at libero id lectus porta dapibus eu in nibh. Cras id mauris sapien. Fusce viverra <a href="#">luctus urna</a> ac rutrum. Duis semper elit eu mi facilisis eleifend. Donec semper, <a href="#">ipsum in</a> malesuada congue, <a href="#">purus sem</a> ullamcorper massa, sit amet lacinia nibh enim sed massa. </p>
+          				<p>{people[0].bio}</p>
           			</div>
 
-                <LinksList links={people[0].biolinks} />
+                <LinksList links={people[0].feeds} />
           		</div>
           	</div>
 
