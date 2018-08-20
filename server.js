@@ -10,21 +10,24 @@ app.prepare()
   .then(() => {
     const server = express()
 
-    server.get('/post', (req, res) =>{
-      return app.render(req, res, '/post', req.query)
-      console.log('ID:', req.params.id)
+    server.get('/about/:id', (req, res) =>{
+      console.log('About QUERY A:', req.params)
+      app.render(req, res, '/about', req.params)
+    })
+    server.get('/about/', (req, res) =>{
+      console.log('About QUERY B:', req.query)
+      app.render(req, res, '/about', req.params)
     })
 
-    server.get('/p', (req, res) =>{
-      return app.render(req, res, '/p', req.query)
-      console.log('ID:', req.params.id)
+    server.get('/work/:id', (req, res) =>{
+      console.log('Work QUERY A:', req.params)
+      app.render(req, res, '/work', req.params)
+    })
+    server.get('/work/', (req, res) =>{
+      console.log('Work QUERY B:', req.query)
+      app.render(req, res, '/work', {id: req.query.id})
     })
 
-    server.get('/movie/:id', (req, res) =>{
-      const actualPage = '/movie'
-      const queryParams = { id: req.params.id}
-      return app.render(req, res, actualPage, queryParams)
-    })
 
     server.get('*', (req, res) =>{
       return handle(req, res)
@@ -34,10 +37,5 @@ app.prepare()
       if (err) throw err
       console.log(`> ready on http:localhost:${port}`);
     })
-
-
-
-
-
 
   })

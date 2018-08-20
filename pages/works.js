@@ -17,6 +17,8 @@ const query = `*[_type == "works"] {
   _id,
   title,
   publishedAt,
+  mainImage,
+  categories,
   "poster":   mainImage.asset->url,
   // "posterAspect": poster.asset->.metadata.dimensions.aspectRatio,
   // "director": crewMembers[job == "Director"][0].person->name
@@ -33,13 +35,20 @@ export default class Works extends React.Component {
 
   render() {
     const {works} = this.props
+    console.log(works);
     return (
       <Layout>
         <div className="movies">
           <ul className="list">
             {works.map(work => (
+
               <li key={work._id} className="list__item">
-                <Link href={{pathname: '/work', query: {id: work._id}}}>
+              <img
+                className="poster"
+                width="100"
+                src={imageUrlFor(work.poster).ignoreImageParams().width(100)} alt={`work poster for ${work.title}`}
+              />
+                <Link href={{pathname: '/work/', query: {id: work._id}}}>
                   <a>
                   <h3>{work.title}</h3>
 
